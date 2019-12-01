@@ -1,0 +1,197 @@
+  [1m[35m (6002.2ms)[0m  [1m[35mCREATE DATABASE "potus_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (3076.6ms)[0m  [1m[35mCREATE DATABASE "potus_app_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2019-12-01 13:06:35 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 356)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2019-12-01 13:06:38 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/karl/POTUS_Watch/potus_app/public/packs
+[Webpacker] Hash: 94776026868fb7a4eb2f
+Version: webpack 4.41.2
+Time: 10488ms
+Built at: 12/01/2019 1:06:51 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-7f5cb269e4e0b2c3d60e.js   1.19 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-7f5cb269e4e0b2c3d60e.js.map   1.37 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+Entrypoint hello_react = js/hello_react-7f5cb269e4e0b2c3d60e.js js/hello_react-7f5cb269e4e0b2c3d60e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 994 bytes {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+Completed 200 OK in 15825ms (Views: 15808.4ms | ActiveRecord: 0.0ms | Allocations: 31473)
+
+
+[Webpacker] Compiled all packs in /home/karl/POTUS_Watch/potus_app/public/packs
+[Webpacker] Hash: 94776026868fb7a4eb2f
+Version: webpack 4.41.2
+Time: 8876ms
+Built at: 12/01/2019 1:06:52 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-7f5cb269e4e0b2c3d60e.js   1.19 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-7f5cb269e4e0b2c3d60e.js.map   1.37 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+Entrypoint hello_react = js/hello_react-7f5cb269e4e0b2c3d60e.js js/hello_react-7f5cb269e4e0b2c3d60e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 994 bytes {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+Completed 200 OK in 13797ms (Views: 13793.5ms | ActiveRecord: 0.0ms | Allocations: 9619)
+
+
+Started GET "/" for ::1 at 2019-12-01 13:14:42 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 342)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: b2f09f5684dc8f635165
+Version: webpack 4.41.2
+Time: 11139ms
+Built at: 12/01/2019 1:14:58 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-0947db2da19c3d86a624.js   2.55 MiB        Index  [emitted] [immutable]  Index
+      js/Index-0947db2da19c3d86a624.js.map   2.84 MiB        Index  [emitted] [dev]        Index
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+Entrypoint Index = js/Index-0947db2da19c3d86a624.js js/Index-0947db2da19c3d86a624.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/Index.jsx] 820 bytes {Index} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 3.16 KiB {Index} [built] [failed] [1 error]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {Index} [built]
+    + 22 hidden modules
+
+ERROR in ./app/javascript/routes/Index.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/karl/POTUS_Watch/potus_app/app/javascript/routes/Index.jsx: Invalid regular expression flag (1:22)
+
+> 1 | ~/rails_react_recipe/app/javascript/routes/Index.jsx
+    |                       ^
+  2 | import React from "react";
+  3 | import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+  4 | import Home from "../components/Home";
+    at Object.raise (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:6975:17)
+    at Object.readRegexp (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:7737:14)
+    at Object.readToken_slash (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:7348:12)
+    at Object.getTokenFromCode (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:7626:14)
+    at Object.getTokenFromCode (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:4129:18)
+    at Object.nextToken (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:7195:12)
+    at Object.next (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:7124:10)
+    at Object.parseMaybeUnary (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:9166:12)
+    at Object.parseExprOps (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:9056:23)
+    at Object.parseMaybeConditional (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:9029:23)
+    at Object.parseMaybeAssign (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:8975:21)
+    at Object.parseExpression (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:8925:23)
+    at Object.parseStatementContent (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:10785:23)
+    at Object.parseStatement (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:10656:17)
+    at Object.parseBlockOrModuleBlockBody (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:11232:25)
+    at Object.parseBlockBody (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:11219:10)
+    at Object.parseTopLevel (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:10587:10)
+    at Object.parse (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:12097:10)
+    at parse (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/parser/lib/index.js:12148:38)
+    at parser (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/core/lib/transformation/normalize-file.js:168:34)
+    at normalizeFile (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/core/lib/transformation/normalize-file.js:102:11)
+    at runSync (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/core/lib/transformation/index.js:44:43)
+    at runAsync (/home/karl/POTUS_Watch/potus_app/node_modules/@babel/core/lib/transformation/index.js:35:14)
+    at /home/karl/POTUS_Watch/potus_app/node_modules/@babel/core/lib/transform.js:34:34
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+ @ ./app/javascript/components/App.jsx 2:0-37 4:51-57
+ @ ./app/javascript/packs/Index.jsx
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16109ms (Views: 16096.0ms | ActiveRecord: 0.0ms | Allocations: 18368)
+
+
+Started GET "/" for ::1 at 2019-12-01 13:16:10 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/karl/POTUS_Watch/potus_app/public/packs
+[Webpacker] Hash: 7d4cf39b2e4ce7052c93
+Version: webpack 4.41.2
+Time: 8297ms
+Built at: 12/01/2019 1:16:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-d63ee26a17cb0341a0a2.js   2.69 MiB        Index  [emitted] [immutable]  Index
+      js/Index-d63ee26a17cb0341a0a2.js.map   2.98 MiB        Index  [emitted] [dev]        Index
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+Entrypoint Index = js/Index-d63ee26a17cb0341a0a2.js js/Index-d63ee26a17cb0341a0a2.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/Index.jsx] 820 bytes {Index} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 630 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {Index} [built]
+    + 43 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57192ms (Views: 57189.2ms | ActiveRecord: 0.0ms | Allocations: 6885)
+
+
+Started GET "/" for ::1 at 2019-12-01 13:18:47 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 170ms (Views: 167.8ms | ActiveRecord: 0.0ms | Allocations: 10028)
+
+
+Started GET "/" for ::1 at 2019-12-01 13:21:32 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/karl/POTUS_Watch/potus_app/public/packs
+[Webpacker] Hash: b3ea8331cb8545a4cecc
+Version: webpack 4.41.2
+Time: 6916ms
+Built at: 12/01/2019 1:21:43 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-6f0b9cae3b42798705da.js   2.69 MiB        Index  [emitted] [immutable]  Index
+      js/Index-6f0b9cae3b42798705da.js.map   2.98 MiB        Index  [emitted] [dev]        Index
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+Entrypoint Index = js/Index-6f0b9cae3b42798705da.js js/Index-6f0b9cae3b42798705da.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/Index.jsx] 820 bytes {Index} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 630 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {Index} [built]
+    + 43 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11479ms (Views: 11476.9ms | ActiveRecord: 0.0ms | Allocations: 6751)
+
+
