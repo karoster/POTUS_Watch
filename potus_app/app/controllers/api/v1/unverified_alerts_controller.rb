@@ -13,9 +13,9 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
             .first_or_create(words: alert_words)
             .update(words: alert_words)
         if @unverified_alert 
-            p "made it to if statement"
+            render json: @unverified_alert
         else
-
+            render json: @unverified_alert
         end
     end
 

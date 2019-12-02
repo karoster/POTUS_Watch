@@ -39,26 +39,25 @@ class UnverifiedForm extends React.Component{
         const token = document.querySelector('meta[name="csrf-token"]').content;
 
 
-        console.log(JSON.stringify(body));
 
-        
-        fetch(url, {
+        const resp = fetch(url, {
             method: "POST",
             headers: {
               "X-CSRF-Token": token,
               "Content-Type": "application/json"
             },
             body: JSON.stringify(body)
-          }).then(response => {
+        }).then(response => {
               if (response.ok) {
                 return response.json();
               }
               throw new Error("Network response was not ok.");//might be better to just convert response to json,
               //then handle it in the catch statement regardless...
-          }).then(
-                response => this.props.history.push(`/recipe/${response.id}`)
-          ).catch(error => console.log(error.message));
-
+        }).catch(error => console.log(error.message));
+            
+        console.log(resp)
+        this.setState({email:"", words:[]})
+        return null;
     }
 
       
