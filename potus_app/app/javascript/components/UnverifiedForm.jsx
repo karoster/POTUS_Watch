@@ -27,8 +27,37 @@ class UnverifiedForm extends React.Component{
             this.setState({wordsErr: "You must first monitor at least one word"});
             return null;
         }
-        //need to add ajax call to post to unverified email/words table.
-        // $.ajax()
+        //handle invalid email here...
+
+        const url = "/api/v1/unverified_alerts";
+        const {email, words} = this.state;
+        const body = {
+            email,
+            words
+        };
+
+        const token = document.querySelector('meta[name="csrf-token"]').content;
+
+
+        console.log(JSON.stringify(body));
+
+        
+        fetch(url, {
+            method: "POST",
+            headers: {
+              "X-CSRF-Token": token,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+          }).then(response => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error("Network response was not ok.");//might be better to just convert response to json,
+              //then handle it in the catch statement regardless...
+          }).then(
+                response => this.props.history.push(`/recipe/${response.id}`)
+          ).catch(error => console.log(error.message));
 
     }
 
@@ -78,7 +107,6 @@ class UnverifiedForm extends React.Component{
         }
 
 
-
         return (
             <div className="my-form-div">
                 <form className="my-form" onSubmit={this.submitForm}>
@@ -119,7 +147,6 @@ class UnverifiedForm extends React.Component{
         );
 
     }
-
 
 }
 
