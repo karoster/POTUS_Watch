@@ -3,11 +3,7 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
 
     def create
         #send email on creation success
-        # p("in #create")
-        # p(params)
-        p "ding"
         email = unverified_alert_params["email"]
-        p"ding1"
         alert_words = unverified_alert_params["words"]
         @unverified_alert = UnverifiedAlert.where(email: email)
             .first_or_create(words: alert_words)
@@ -15,7 +11,7 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
         if @unverified_alert 
             render json: @unverified_alert
         else
-            render json: @unverified_alert
+            render json: @unverified_alert.errors
         end
     end
 

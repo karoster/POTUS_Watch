@@ -84,7 +84,8 @@ class UnverifiedForm extends React.Component{
         event.preventDefault();
         let newWords = [...this.state.words];
         const target = event.currentTarget;
-        const targetIdx = newWords.indexOf(target.value);
+        //target is not an input -> value doesn't make sense?
+        const targetIdx = newWords.indexOf(target.innerHTML);
         newWords.splice(targetIdx,1);
         this.setState({words: newWords });
 
