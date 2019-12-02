@@ -9,7 +9,7 @@ class UnverifiedForm extends React.Component{
             email: "",
             wordInput:"",
             errors: {
-                wordErr: "",
+                wordsErr: "",
                 emailErr: "",
                 wordInputErr:""
             }
@@ -23,6 +23,13 @@ class UnverifiedForm extends React.Component{
 
     submitForm(event){
         event.preventDefault();
+        if (!this.state.words.length){
+            this.setState({wordsErr: "You must first monitor at least one word"});
+            return null;
+        }
+        //need to add ajax call to post to unverified email/words table.
+        // $.ajax()
+
     }
 
       
@@ -33,16 +40,16 @@ class UnverifiedForm extends React.Component{
 
         if (this.state.words.length >= 5) {
             this.setState( {wordInput: "", wordInputErr: "You may not monitor more than five words"} );
-            return null
+            return null;
         } else if (this.state.wordInput == ""){
-            this.setState( {wordInput: "", wordInputErr: "Word may not be blank"} )
-            return null
+            this.setState( {wordInput: "", wordInputErr: "Word may not be blank"} );
+            return null;
         } else if (this.state.words.includes(word)){
-            this.setState( {wordInput: "", wordInputErr: "That word is already on your monitor list"} )
-            return null
+            this.setState( {wordInput: "", wordInputErr: "That word is already on your monitor list"} );
+            return null;
         }
 
-        this.setState({wordInput: "", words: [...this.state.words, word], wordInputErr: ""})
+        this.setState({wordInput: "", words: [...this.state.words, word], wordInputErr: ""});
     }
 
     removeWord(event){
@@ -50,7 +57,7 @@ class UnverifiedForm extends React.Component{
         let newWords = [...this.state.words];
         const target = event.currentTarget;
         const targetIdx = newWords.indexOf(target.value);
-        newWords.splice(targetIdx,1)
+        newWords.splice(targetIdx,1);
         this.setState({words: newWords });
 
     }
@@ -69,6 +76,8 @@ class UnverifiedForm extends React.Component{
                 </ul>
             </div>
         }
+
+
 
         return (
             <div className="my-form-div">
@@ -102,6 +111,9 @@ class UnverifiedForm extends React.Component{
                     { keywords }
 
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    <small id="emailHelp" className="form-text text-muted">
+                            {this.state.wordsErr}
+                    </small>
                 </form>
             </div>
         );
