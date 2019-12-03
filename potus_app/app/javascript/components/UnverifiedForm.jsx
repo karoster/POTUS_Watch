@@ -64,7 +64,8 @@ class UnverifiedForm extends React.Component{
     addWord(event){
         event.preventDefault();
 
-        const word = this.state.wordInput;
+        const wordInput = this.state.wordInput;
+        const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
 
         if (this.state.words.length >= 5) {
             this.setState( {wordInput: "", wordInputErr: "You may not monitor more than five words"} );
@@ -126,6 +127,8 @@ class UnverifiedForm extends React.Component{
                         <input onChange={this.update('wordInput')}
                             type="text"
                             className="form-control"
+                            maxLength='20'
+                            title="single word"
                             value={this.state.wordInput}
                             id="InputKeyWord" />
                         <br/>
