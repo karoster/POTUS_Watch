@@ -1,4 +1,7 @@
 import React from 'react'
+import $ from 'jquery';
+
+import SuccessfulSubmit from './SuccessfulSubmit';
 
 class UnverifiedForm extends React.Component{
     constructor(props){
@@ -8,10 +11,13 @@ class UnverifiedForm extends React.Component{
             words: [],
             email: "",
             wordInput:"",
+            response: null,
+            successfulSubmit: false,
             errors: {
                 wordsErr: "",
                 emailErr: "",
-                wordInputErr:""
+                wordInputErr:"",
+                submitErr:""
             }
         };
 
@@ -21,26 +27,34 @@ class UnverifiedForm extends React.Component{
         this.removeWord = this.removeWord.bind(this);
     }
 
+    showModal(){
+        $('#myModal').modal('show'); 
+    }
+
     submitForm(event){
         event.preventDefault();
-        if (!this.state.words.length){
-            this.setState({wordsErr: "You must first monitor at least one word"});
+        const {email, words} = this.state;
+
+        if (email == ""){
+            this.setState({submitErr: "you must first enter an email!"});
+            return null;
+        } else if (!words.length){
+            //clear submit error as email must now be entered to make it this far...
+            this.setState( {wordsErr: "You must first monitor at least one word", submitErr: ""} );
             return null;
         }
-        //handle invalid email here...
 
         const url = "/api/v1/unverified_alerts";
-        const {email, words} = this.state;
-        const body = {
-            email,
-            words
-        };
-
+        const body = { email, words };
         const token = document.querySelector('meta[name="csrf-token"]').content;
 
+        /*
+        * addWord, and above verifications have ensured data is properly formatted
+        * the below fetch hits database with an unverified alert. if request is made externally, 
+        * and is wrongly formatted, throws a "network response was not ok error"
+        */
 
-
-        const resp = fetch(url, {
+        fetch(url, {
             method: "POST",
             headers: {
               "X-CSRF-Token": token,
@@ -51,12 +65,14 @@ class UnverifiedForm extends React.Component{
               if (response.ok) {
                 return response.json();
               }
-              throw new Error("Network response was not ok.");//might be better to just convert response to json,
-              //then handle it in the catch statement regardless...
-        }).catch(error => console.log(error.message));
+              throw new Error("Network response was not ok.");
+        }).then(response => this.setState( {response: response,
+                successfulSubmit: true,
+                email:"",
+                words:[] })
+        ).then( response => {this.showModal()}
+        ).catch(error => this.setState({submitErr: error, response: response}));
             
-        console.log(resp)
-        this.setState({email:"", words:[]})
         return null;
     }
 
@@ -65,6 +81,7 @@ class UnverifiedForm extends React.Component{
         event.preventDefault();
 
         const wordInput = this.state.wordInput;
+        //only taking the first word from the input using whitespace look-behind
         const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
 
         if (this.state.words.length >= 5) {
@@ -78,14 +95,13 @@ class UnverifiedForm extends React.Component{
             return null;
         }
 
-        this.setState({wordInput: "", words: [...this.state.words, word], wordInputErr: ""});
+        this.setState({wordInput: "", wordsErr:"", words: [...this.state.words, word], wordInputErr: ""});
     }
 
     removeWord(event){
         event.preventDefault();
         let newWords = [...this.state.words];
         const target = event.currentTarget;
-        //target is not an input -> value doesn't make sense?
         const targetIdx = newWords.indexOf(target.innerHTML);
         newWords.splice(targetIdx,1);
         this.setState({words: newWords });
@@ -97,19 +113,24 @@ class UnverifiedForm extends React.Component{
     }
 
     render(){
+        const {successfulSubmit, wordInputErr, words, wordInput, wordsErr, email, submitErr, response} = this.state;
+
         let keywords;
-        if(this.state.words.length > 0){
+        if(words.length > 0){
             keywords = <div className="form-group">
                 <label htmlFor="CurrentKeyWords">Key Words</label>
                 <ul className="key-word-list">
-                    {this.state.words.map( (word, idx) => <li key={idx}><button onClick={this.removeWord}>{word}</button></li>) }
+                    {words.map( (word, idx) => <li key={idx}><button onClick={this.removeWord}>{word}</button></li>) }
                 </ul>
             </div>
         }
 
 
+
         return (
             <div className="my-form-div">
+                {successfulSubmit ? <SuccessfulSubmit words={words} email={email} response={response}/> : ""}
+
                 <form className="my-form" onSubmit={this.submitForm}>
                     <div className="form-group">
                         <label htmlFor="InputEmail">Email Address</label>
@@ -117,7 +138,7 @@ class UnverifiedForm extends React.Component{
                             type="email"
                             className="form-control"
                             id="InputEmail"
-                            value={this.state.email}
+                            value={email}
                             aria-describedby="emailHelp"/>
                         <small id="emailHelp" className="form-text text-muted">You will have to verify your email</small>
                     </div>
@@ -129,12 +150,12 @@ class UnverifiedForm extends React.Component{
                             className="form-control"
                             maxLength='20'
                             title="single word"
-                            value={this.state.wordInput}
+                            value={wordInput}
                             id="InputKeyWord" />
                         <br/>
                         <button onClick={this.addWord} className="btn btn-secondary">Add Key Word</button>
                         <small id="emailHelp" className="form-text text-muted">
-                            {this.state.wordInputErr}
+                            {wordInputErr}
                         </small>
 
                     </div>
@@ -143,7 +164,8 @@ class UnverifiedForm extends React.Component{
 
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <small id="emailHelp" className="form-text text-muted">
-                            {this.state.wordsErr}
+                            {wordsErr}
+                            {submitErr}
                     </small>
                 </form>
             </div>

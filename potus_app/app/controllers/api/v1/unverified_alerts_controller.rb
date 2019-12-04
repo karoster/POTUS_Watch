@@ -12,9 +12,9 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
 
             if  @unverified_alert.update(words: alert_words)
                 AlertMailer.verify_alert_email(@unverified_alert).deliver
+                #need to add frontend confirmation that email was sent...
                 render json: @unverified_alert
             else
-                p @unverified_alert.errors.full_messages
                 render json: @unverified_alert.errors
             end
 
