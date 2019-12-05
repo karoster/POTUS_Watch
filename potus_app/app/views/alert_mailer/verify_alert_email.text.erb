@@ -3,4 +3,4 @@ please click the following link to set up a live email alert when the president 
 <% @unverified_alert.words.each do |word| %>
     <%= word %>
 <% end %>
-register alert:  <%= "localhost:3000/api/v1/#{@unverified_alert.id}/verify?verification_token=#{@unverified_alert.verification_token}" %>
+register alert:  <%= "localhost:3000/api/v1/verified_alerts?verification_token=#{@unverified_alert.verification_token}" %>

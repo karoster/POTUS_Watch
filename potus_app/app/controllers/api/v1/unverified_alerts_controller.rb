@@ -7,7 +7,6 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
         @unverified_alert = UnverifiedAlert.where(email: email)
             .first_or_create(words: alert_words)
 
-
         if @unverified_alert.valid?
 
             if  @unverified_alert.update(words: alert_words)
@@ -22,9 +21,7 @@ class Api::V1::UnverifiedAlertsController < ApplicationController
         end
     end
 
-
     private
-
 
     def unverified_alert_params
         params.require(:unverified_alert).permit(:email, {words: []})
