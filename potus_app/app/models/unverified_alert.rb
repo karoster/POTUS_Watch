@@ -20,10 +20,10 @@ class UnverifiedAlert < ApplicationRecord
             if word.length > 20
                 errors.add(:words, "can't be longer than 20 characters")
             elsif !word.match(VALID_WORD_REGEX)
-                errors.add(:words, ": each keyword must only be a single word with no whitespaces.")
+                errors.add(:each, "keyword must only be a single word with no whitespaces.")
             end
         end
-        errors.add(:words, "must not contain more than 5 keywords") if self.words.length > 5
+        errors.add(:you, " may only track five keywords") if self.words.length > 5
 
     end
 

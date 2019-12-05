@@ -1,7 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 
-import SuccessfulSubmit from './SuccessfulSubmit';
+import ModalSubmit from './ModalSubmit';
 
 class UnverifiedForm extends React.Component{
     constructor(props){
@@ -12,7 +12,7 @@ class UnverifiedForm extends React.Component{
             email: "",
             wordInput:"",
             response: null,
-            successfulSubmit: false,
+            modalSubmit: false,
             errors: {
                 wordsErr: "",
                 emailErr: "",
@@ -25,10 +25,16 @@ class UnverifiedForm extends React.Component{
         this.update = this.update.bind(this);
         this.addWord = this.addWord.bind(this);
         this.removeWord = this.removeWord.bind(this);
+        this.removeModal = this.removeModal.bind(this);
     }
 
     showModal(){
         $('#myModal').modal('show'); 
+    }
+
+    removeModal(event){
+        event.preventDefault();
+        this.setState({modalSubmit: false});
     }
 
     submitForm(event){
@@ -36,7 +42,7 @@ class UnverifiedForm extends React.Component{
         const {email, words} = this.state;
 
         if (email == ""){
-            this.setState({submitErr: "you must first enter an email!"});
+            this.setState({submitErr: "you must first enter an email!", wordsErr: ""});
             return null;
         } else if (!words.length){
             //clear submit error as email must now be entered to make it this far...
@@ -67,7 +73,7 @@ class UnverifiedForm extends React.Component{
               }
               throw new Error("Network response was not ok.");
         }).then(response => this.setState( {response: response,
-                successfulSubmit: true,
+                modalSubmit: true,
                 email:"",
                 words:[] })
         ).then( response => {this.showModal()}
@@ -82,7 +88,8 @@ class UnverifiedForm extends React.Component{
 
         const wordInput = this.state.wordInput;
         //only taking the first word from the input using whitespace look-behind
-        const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
+        // const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
+        const word = wordInput;
 
         if (this.state.words.length >= 5) {
             this.setState( {wordInput: "", wordInputErr: "You may not monitor more than five words"} );
@@ -113,7 +120,7 @@ class UnverifiedForm extends React.Component{
     }
 
     render(){
-        const {successfulSubmit, wordInputErr, words, wordInput, wordsErr, email, submitErr, response} = this.state;
+        const {modalSubmit, wordInputErr, words, wordInput, wordsErr, email, submitErr, response} = this.state;
 
         let keywords;
         if(words.length > 0){
@@ -129,7 +136,7 @@ class UnverifiedForm extends React.Component{
 
         return (
             <div className="my-form-div">
-                {successfulSubmit ? <SuccessfulSubmit words={words} email={email} response={response}/> : ""}
+                {modalSubmit ? <ModalSubmit removeModal={this.removeModal} response={response} /> : ""}
 
                 <form className="my-form" onSubmit={this.submitForm}>
                     <div className="form-group">
@@ -164,8 +171,8 @@ class UnverifiedForm extends React.Component{
 
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <small id="emailHelp" className="form-text text-muted">
-                            {wordsErr}
-                            {submitErr}
+                        {wordsErr}
+                        {submitErr}
                     </small>
                 </form>
             </div>
