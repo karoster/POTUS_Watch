@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tweets, only: [:create]
       resources :unverified_alerts, only: [:create]
-
+      resources :verified_alerts, only: [:create, :destroy]
     end
   end
 

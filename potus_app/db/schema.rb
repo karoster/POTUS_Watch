@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_033746) do
+ActiveRecord::Schema.define(version: 2019_12_05_035024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2019_12_05_033746) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_unverified_alerts_on_email", unique: true
     t.index ["verification_token"], name: "index_unverified_alerts_on_verification_token", unique: true
+  end
+
+  create_table "verified_alerts", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "word", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_verified_alerts_on_email"
+    t.index ["word"], name: "index_verified_alerts_on_word"
   end
 
 end
