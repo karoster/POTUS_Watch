@@ -34,7 +34,7 @@ class UnverifiedForm extends React.Component{
 
     removeModal(event){
         event.preventDefault();
-        //only disable modal if alpha background is clicked
+        //below statement ensures modal is only closed if x button is clicked, or alpha background is.
         if (event.target != this){ return }
         $('#myModal').modal('hide')
         this.setState({ modalSubmit: false });
@@ -48,7 +48,7 @@ class UnverifiedForm extends React.Component{
             this.setState({submitErr: "you must first enter an email!", wordsErr: ""});
             return null;
         } else if (!words.length){
-            //clear submit error as email must now be entered to make it this far...
+            //I clear the submit error here because email must now be entered to make it this far...
             this.setState( {wordsErr: "You must first monitor at least one word", submitErr: ""} );
             return null;
         }

@@ -47,9 +47,6 @@ class Confirmation extends React.Component{
 
         return(
             receivedResponse ? confirmAlert : ""  
-
-            // <div className="fixed-top alert-fixed">
-            // </div>
         );
     }
 
