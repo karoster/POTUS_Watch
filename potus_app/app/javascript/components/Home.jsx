@@ -1,11 +1,9 @@
 import React from "react";
 import UnverifiedForm from "./UnverifiedForm"
-import HeaderNav from "./Header"
 import { Link } from "react-router-dom";
 
 export default () => (
   <div>
-    <HeaderNav/>
     <section className="jumbotron jumbotron-fluid text-center">
       <div className="container py-5">
         <h1 className="display-4">Alerts to the President's latest tweets</h1>

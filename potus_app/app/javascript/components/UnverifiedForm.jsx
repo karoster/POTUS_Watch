@@ -34,7 +34,10 @@ class UnverifiedForm extends React.Component{
 
     removeModal(event){
         event.preventDefault();
-        this.setState({modalSubmit: false});
+        //only disable modal if alpha background is clicked
+        if (event.target != this){ return }
+        $('#myModal').modal('hide')
+        this.setState({ modalSubmit: false });
     }
 
     submitForm(event){
@@ -88,8 +91,7 @@ class UnverifiedForm extends React.Component{
 
         const wordInput = this.state.wordInput;
         //only taking the first word from the input using whitespace look-behind
-        // const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
-        const word = wordInput;
+        const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
 
         if (this.state.words.length >= 5) {
             this.setState( {wordInput: "", wordInputErr: "You may not monitor more than five words"} );
