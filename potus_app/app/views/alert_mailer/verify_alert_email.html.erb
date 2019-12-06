@@ -11,7 +11,7 @@
           <% end %>
     </ul>
     <p>
-      <a href=<%="localhost:3000/api/v1/verified_alerts?verification_token=#{@unverified_alert.verification_token}"%>>
+      <a href=<%="localhost:3000/confirm/#{@unverified_alert.verification_token}"%>>
         Click HERE!
       </a>
 
