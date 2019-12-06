@@ -1,18 +1,74 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import Home from "../components/Home";
-// import UnverifiedForm from "../components/UnverifiedForm"
+import HeaderNav from "../components/Header"
+import Confirmation from "../components/Confirmation"
+
+
 
 export default (
   <Router>
-    <Switch>
-      <Route path="/" render={ props => 
-        <div>
-          <Home/>
-        </div>
-      }/>
+    <div>
+      <Switch>
+
+        <Route path="/confirm/:id" render={ props => 
+          <div>
+            <HeaderNav/>
+            <Confirmation {...props} />
+            <Home/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        }/>
 
 
-    </Switch>
+        <Route path="/about" render={ props => 
+          <div>
+
+          </div>
+        }/>
+
+
+        <Route path="/" render={ props => 
+          <div>
+            <HeaderNav/>
+
+            <Home/>
+          </div>
+        }/>
+
+        
+
+        {/* <Redirect from='*' to='/'/> */}
+        
+
+
+      </Switch>
+    </div>
   </Router>
 );
