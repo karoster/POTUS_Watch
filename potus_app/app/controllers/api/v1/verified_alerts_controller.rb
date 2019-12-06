@@ -1,22 +1,23 @@
 class Api::V1::VerifiedAlertsController < ApplicationController
-  def index
-    @unverified_alert = UnverifiedAlert.where(verification_token: verified_alert_params["verification_token"])
+  def show
+    @unverified_alert = UnverifiedAlert.find_by(verification_token: verified_alert_params["id"])
+    p @unverified_alert
 
     if @unverified_alert
-
       begin
         VerifiedAlert.transaction do 
           words, email = @unverified_alert.words, @unverified_alert.email
-          words.each { |word| VerifiedAlert.create( email: email, word: word ) }
+          words.each { |word| tester = VerifiedAlert.create( email: email, word: word ) }
           @unverified_alert.destroy
         end
-        #render page saying verification success....
+        render json: { msg: "verification successful" }
+
       rescue => exception
-        #catch error saying something went wrong...
+        render json: { msg: exception.message, error: true}
       end
 
     else
-      #render page saying expired verification token
+      render json: { msg: "verification link has expired or is invalid", error: true }
     end
 
   end
@@ -28,6 +29,6 @@ class Api::V1::VerifiedAlertsController < ApplicationController
   private
 
   def verified_alert_params
-    params.permit(:verification_token)
+    params.permit(:id)
   end
 end
