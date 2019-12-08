@@ -1,6 +1,7 @@
 *.rbc
 capybara-*.html
 .rspec
+db/seeds
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/*.sqlite3-[0-9]*
@@ -65,5 +66,6 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
+# ignore keys/ secrets
 /config/master.key
+/secrets.js
