@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>The President has tweeted:</p>
+    <%= raw(@tweet_embed.html) %>
+    <p>Which contains your alert keyword: <%= @alert_word %></p>
+  </body>
+</html>
