@@ -23,14 +23,13 @@ export default (
 
         <Route path="/unsubscribe/:id" render={ props =>
           <div>
-            <Unsubscribe/>
+            <Unsubscribe {...props} />
             <Home/>
           </div>
         }/>
 
         <Route path="/about" render={ props => 
           <div>
-            <Footer/>
           </div>
         }/>
 

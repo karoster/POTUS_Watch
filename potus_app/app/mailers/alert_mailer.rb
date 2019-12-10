@@ -9,7 +9,8 @@ class AlertMailer < ApplicationMailer
     def send_alert(alert, tweet_body, tweet_embed)
         @tweet_embed = tweet_embed
         @tweet_body = tweet_body
-        @alert_word, @alert_email = alert[1], alert[0]
+        
+        @alert_auth, @alert_word, @alert_email = alert[2], alert[1], alert[0]
         mail(to: @alert_email, subject: "POTUS-Watch Notification Alert Email")
     end
 

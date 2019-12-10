@@ -7,5 +7,11 @@
     <p>The President has tweeted:</p>
     <%= raw(@tweet_embed.html) %>
     <p>Which contains your alert keyword: <%= @alert_word %></p>
+
+    <p>Click
+      <a href=<%="localhost:3000/unsubscribe/#{@alert_auth}"%>>here</a>
+      to unsubscribe from these alerts
+    </p>
+
   </body>
 </html>

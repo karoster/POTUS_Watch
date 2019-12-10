@@ -37,8 +37,8 @@ class Api::V1::TweetsController < ApplicationController
     #get alerts but keep unique on email, map into array of arrays
     #want to keep word in this array, so I can show word in email
     alerts = VerifiedAlert.where(word: tweet_word_list)
-    .select('DISTINCT ON (verified_alerts.email) verified_alerts.email, verified_alerts.word')
-    .map { |row| [row.email, row.word] }
+    .select('DISTINCT ON (verified_alerts.email) verified_alerts.email, verified_alerts.word, verified_alerts.authentication_token')
+    .map { |row| [row.email, row.word, row.authentication_token] }
 
     alerts
   end

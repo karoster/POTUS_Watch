@@ -1,4 +1,5 @@
 class Api::V1::VerifiedAlertsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:destroy]
 
 
   def show
@@ -12,6 +13,7 @@ class Api::V1::VerifiedAlertsController < ApplicationController
           words, email = @unverified_alert.words, @unverified_alert.email
           VerifiedAlert.where(email: email).delete_all
 
+          #setting authentication token for future unsubscribe authentication (reusing verification token...)
           words.each { |word| tester = VerifiedAlert.create( email: email, word: word, authentication_token: v_token ) }
           @unverified_alert.destroy
         end
@@ -27,23 +29,28 @@ class Api::V1::VerifiedAlertsController < ApplicationController
 
   end
 
+
+
   def destroy
-    #implement later => remove from subscription list
-    #add verifiction token to verified table to delete alerts...
-    #prevents a user destroying another's records...
+    auth_token = verified_alert_params["id"]
 
-    v_token = verified_alert_params["id"]
+    @verified_alerts = VerifiedAlert.where(authentication_token: auth_token)
+      if @verified_alerts.length == 0
+        render json: { msg: "It seems there was an error unsubscribing, please try again later.", error: true }
+      else
+        deletion_success = @verified_alerts.delete_all
 
-    @verified_alerts = VerifiedAlert.where(authentication_token: v_token)
-    @verified_alerts.delete_all
-
-    if @verified_alerts
-      render json: {msg: "You have succesfully unsubscribed from your alerts", error: false}
-    else
-      render json: {msg: @verified_alerts.errors.full_messages, error: true}
-    end
+        if deletion_success
+          render json: {msg: "You have succesfully unsubscribed from your alerts!", error: false}
+        else
+          p deletion_success
+          render json: {msg: deletion_success, error: true}
+        end
+      end
 
   end
+
+
 
   private
 

@@ -21,7 +21,7 @@ class Unsubscribe extends React.Component{
             })
             .catch(err => {
                 console.log(err);
-                this.setState({ receivedResponse: true, message: "failed to connect to server", error: true })
+                this.setState({ receivedResponse: true, message: "something went wrong, perhaps the server is down?", error: true })
             });
     }
 
