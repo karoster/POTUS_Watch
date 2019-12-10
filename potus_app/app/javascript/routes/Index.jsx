@@ -4,23 +4,29 @@ import Home from "../components/Home";
 import HeaderNav from "../components/Header"
 import Confirmation from "../components/Confirmation"
 import Footer from "../components/Footer"
+import Unsubscribe from "../components/Unsubscribe";
 
 
 
 export default (
   <Router>
     <div>
+      <HeaderNav/>
       <Switch>
 
         <Route path="/confirm/:id" render={ props => 
           <div>
-            <HeaderNav/>
             <Confirmation {...props} />
             <Home/>
-            <Footer/>
           </div>
         }/>
 
+        <Route path="/unsubscribe/:id" render={ props =>
+          <div>
+            <Unsubscribe/>
+            <Home/>
+          </div>
+        }/>
 
         <Route path="/about" render={ props => 
           <div>
@@ -31,9 +37,7 @@ export default (
 
         <Route path="/" render={ props => 
           <div>
-            <HeaderNav/>
             <Home/>
-            <Footer/>
           </div>
         }/>
 
@@ -44,6 +48,7 @@ export default (
 
 
       </Switch>
+      <Footer/>
     </div>
   </Router>
 );
