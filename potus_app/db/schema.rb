@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_020700) do
+ActiveRecord::Schema.define(version: 2019_12_10_191307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_020700) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "authentication_token", null: false
-    t.index ["authentication_token"], name: "index_verified_alerts_on_authentication_token"
     t.index ["email"], name: "index_verified_alerts_on_email"
     t.index ["word"], name: "index_verified_alerts_on_word"
   end

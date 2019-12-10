@@ -24,7 +24,6 @@ tweet_age_priority = PQueue.new([]){ |a,b| a < b }
 
 #below endpoint supports 900 request/15 minutes  (1500 for app api)
 newest_tweet_id = (client.user_timeline('watch_potus', count: 1)[0]).id
-p newest_tweet_id, 'this is the id...'
 
 tweet_age_priority.push(newest_tweet_id)
 

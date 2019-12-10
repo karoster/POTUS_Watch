@@ -40,11 +40,7 @@ export default (
           </div>
         }/>
 
-        
-
         {/* <Redirect from='*' to='/'/> */}
-        
-
 
       </Switch>
       <Footer/>

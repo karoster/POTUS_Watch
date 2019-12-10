@@ -1,6 +1,5 @@
 import React from 'react'
 import $ from 'jquery';
-
 import ModalSubmit from './ModalSubmit';
 
 class UnverifiedForm extends React.Component{
@@ -13,6 +12,7 @@ class UnverifiedForm extends React.Component{
             wordInput:"",
             response: null,
             modalSubmit: false,
+            loading: false,
             errors: {
                 wordsErr: "",
                 emailErr: "",
@@ -78,10 +78,12 @@ class UnverifiedForm extends React.Component{
         }).then(response => this.setState( {response: response,
                 modalSubmit: true,
                 email:"",
-                words:[] })
+                words:[],
+                loading: false })
         ).then( response => {this.showModal()}
-        ).catch(error => this.setState({submitErr: error, response: response}));
-            
+        ).catch(error => this.setState({submitErr: error, response: response, loading: false}));
+
+        this.setState({ loading: true })
         return null;
     }
 
@@ -114,7 +116,6 @@ class UnverifiedForm extends React.Component{
         const targetIdx = newWords.indexOf(target.innerHTML);
         newWords.splice(targetIdx,1);
         this.setState({words: newWords });
-
     }
 
     update(property) {
@@ -122,7 +123,7 @@ class UnverifiedForm extends React.Component{
     }
 
     render(){
-        const {modalSubmit, wordInputErr, words, wordInput, wordsErr, email, submitErr, response} = this.state;
+        const {modalSubmit, wordInputErr, words, wordInput, wordsErr, email, submitErr, response, loading} = this.state;
 
         let keywords;
         if(words.length > 0){
@@ -132,6 +133,17 @@ class UnverifiedForm extends React.Component{
                     {words.map( (word, idx) => <li key={idx}><button onClick={this.removeWord}>{word}</button></li>) }
                 </ul>
             </div>
+        }
+
+        let submitButton;
+        if(loading){
+            submitButton = <button className="btn btn-primary" type="button" disabled>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+
+        } else {
+            submitButton = <button type="submit" className="btn btn-primary">Submit</button>
         }
 
 
@@ -171,7 +183,7 @@ class UnverifiedForm extends React.Component{
 
                     { keywords }
 
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    {submitButton}
                     <small id="emailHelp" className="form-text text-muted">
                         {wordsErr}
                         {submitErr}
@@ -179,7 +191,6 @@ class UnverifiedForm extends React.Component{
                 </form>
             </div>
         );
-
     }
 
 }

@@ -14,8 +14,6 @@ class ModalSubmit extends React.Component{
     render(){
         const {response} = this.props
         const {errorBool} = this.state
-        console.log(this.props.removeModal)
-        console.log(response);
         let modalBody;
 
         // response is array of errors if backend validations failed;
@@ -43,9 +41,6 @@ class ModalSubmit extends React.Component{
                             <h5 className="modal-title" id="exampleModalLabel">
                                 { errorBool ? "There was a problem" : "Alert verification email sent!"}
                             </h5>
-                            {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button> */}
                         </div>
                         {modalBody}
                         <div className="modal-footer">

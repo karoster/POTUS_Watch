@@ -14,7 +14,10 @@ class Api::V1::VerifiedAlertsController < ApplicationController
           VerifiedAlert.where(email: email).delete_all
 
           #setting authentication token for future unsubscribe authentication (reusing verification token...)
-          words.each { |word| tester = VerifiedAlert.create( email: email, word: word, authentication_token: v_token ) }
+          p "SDKLJF:LKSJD:LFJ:LSKJDFJSLKDFS:KDJF:KLSJDFKSJ:DFKSDJF:KFJ"
+          p words
+          p "SDLKFJ:SLKJF:LKSD:JFKSD:FJKSJ:DFJSKDFJ:LKSJDFJS:LKDJF:LSKDJF:LSK"
+          words.each { |word| VerifiedAlert.create( email: email, word: word, authentication_token: v_token ) }
           @unverified_alert.destroy
         end
         render json: { msg: "verification successful", error: false}
@@ -36,7 +39,7 @@ class Api::V1::VerifiedAlertsController < ApplicationController
 
     @verified_alerts = VerifiedAlert.where(authentication_token: auth_token)
       if @verified_alerts.length == 0
-        render json: { msg: "It seems there was an error unsubscribing, please try again later.", error: true }
+        render json: { msg: "It seems there was an error unsubscribing. Please try again later.", error: true }
       else
         deletion_success = @verified_alerts.delete_all
 
