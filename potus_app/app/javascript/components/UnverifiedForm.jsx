@@ -128,9 +128,9 @@ class UnverifiedForm extends React.Component{
         let keywords;
         if(words.length > 0){
             keywords = <div className="form-group">
-                <label htmlFor="CurrentKeyWords">Key Words</label>
-                <ul className="key-word-list">
-                    {words.map( (word, idx) => <li key={idx}><button onClick={this.removeWord}>{word}</button></li>) }
+                <label htmlFor="CurrentKeyWords">Keywords</label>
+                <ul className="keyword-list">
+                    {words.map( (word, idx) => <li key={idx}><button className="btn btn-outline-secondary btn-sm" onClick={this.removeWord}>{word}</button></li>) }
                 </ul>
             </div>
         }
@@ -165,7 +165,7 @@ class UnverifiedForm extends React.Component{
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="InputKeyWord">Key Word Input</label>
+                        <label htmlFor="InputKeyWord">Keyword Input</label>
                         <input onChange={this.update('wordInput')}
                             type="text"
                             className="form-control"
@@ -174,7 +174,7 @@ class UnverifiedForm extends React.Component{
                             value={wordInput}
                             id="InputKeyWord" />
                         <br/>
-                        <button onClick={this.addWord} className="btn btn-secondary">Add Key Word</button>
+                        <button onClick={this.addWord} className="btn btn-secondary">Add Keyword</button>
                         <small id="emailHelp" className="form-text text-muted">
                             {wordInputErr}
                         </small>

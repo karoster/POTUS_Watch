@@ -5,3 +5,13 @@
     z-index:999; 
     border-radius:0px;
 }
+
+.keyword-list {
+    list-style: none;
+    display: flex;
+    flex: left;
+}
+
+.keyword-list li {
+    margin-right: 10px;
+}

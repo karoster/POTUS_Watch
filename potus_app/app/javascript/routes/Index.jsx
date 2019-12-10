@@ -28,6 +28,7 @@ export default (
           </div>
         }/>
 
+
         <Route path="/about" render={ props => 
           <div>
           </div>
