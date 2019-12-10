@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import Home from "../components/Home";
 import HeaderNav from "../components/Header"
 import Confirmation from "../components/Confirmation"
+import Footer from "../components/Footer"
 
 
 
@@ -16,13 +17,14 @@ export default (
             <HeaderNav/>
             <Confirmation {...props} />
             <Home/>
+            <Footer/>
           </div>
         }/>
 
 
         <Route path="/about" render={ props => 
           <div>
-
+            <Footer/>
           </div>
         }/>
 
@@ -30,8 +32,8 @@ export default (
         <Route path="/" render={ props => 
           <div>
             <HeaderNav/>
-
             <Home/>
+            <Footer/>
           </div>
         }/>
 
