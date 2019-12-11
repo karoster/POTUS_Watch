@@ -137,13 +137,13 @@ class UnverifiedForm extends React.Component{
 
         let submitButton;
         if(loading){
-            submitButton = <button className="btn btn-primary" type="button" disabled>
+            submitButton = <button className="btn btn-primary btn-block" type="button" disabled>
                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Loading...
                 </button>
 
         } else {
-            submitButton = <button type="submit" className="btn btn-primary">Submit</button>
+            submitButton = <button type="submit" className="btn btn-primary btn-block">Submit</button>
         }
 
 
@@ -174,7 +174,7 @@ class UnverifiedForm extends React.Component{
                             value={wordInput}
                             id="InputKeyWord" />
                         <br/>
-                        <button onClick={this.addWord} className="btn btn-secondary">Add Keyword</button>
+                        <button onClick={this.addWord} className="btn btn-secondary btn-block">Add Keyword</button>
                         <small id="emailHelp" className="form-text text-muted">
                             {wordInputErr}
                         </small>
