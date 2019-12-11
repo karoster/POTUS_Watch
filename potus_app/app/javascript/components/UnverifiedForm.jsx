@@ -127,68 +127,75 @@ class UnverifiedForm extends React.Component{
 
         let keywords;
         if(words.length > 0){
-            keywords = <div className="form-group">
-                <label htmlFor="CurrentKeyWords">Keywords</label>
-                <ul className="keyword-list">
+            keywords = <div className="my-form-group">
+                <label htmlFor="CurrentKeyWords">Keywords:</label>
+                <ul className="keyword-list w-75 mx-auto">
                     {words.map( (word, idx) => <li key={idx}><button className="btn btn-outline-secondary btn-sm" onClick={this.removeWord}>{word}</button></li>) }
                 </ul>
             </div>
         }
 
+
         let submitButton;
         if(loading){
-            submitButton = <button className="btn btn-primary btn-block" type="button" disabled>
+            submitButton = <button className="btn btn-primary w-25 mx-auto" type="button" disabled>
                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Loading...
                 </button>
 
         } else {
-            submitButton = <button type="submit" className="btn btn-primary btn-block">Submit</button>
+            submitButton = <button type="submit" className="btn btn-primary w-25 mx-auto">Submit</button>
         }
 
 
 
         return (
-            <div className="my-form-div">
-                {modalSubmit ? <ModalSubmit removeModal={this.removeModal} response={response} /> : ""}
+            <div className="container ">
+                <div className="section text-center">
+                    <h1>Sign Up</h1>
+                    <h4>You Can Monitor 5 Keywords</h4>
+                    {modalSubmit ? <ModalSubmit removeModal={this.removeModal} response={response} /> : ""}
 
-                <form className="my-form" onSubmit={this.submitForm}>
-                    <div className="form-group">
-                        <label htmlFor="InputEmail">Email Address</label>
-                        <input onChange={this.update('email')}
-                            type="email"
-                            className="form-control"
-                            id="InputEmail"
-                            value={email}
-                            aria-describedby="emailHelp"/>
-                        <small id="emailHelp" className="form-text text-muted">You will have to verify your email</small>
-                    </div>
+                    <form className="my-form" onSubmit={this.submitForm}>
+                        <div className="form-group">
+                            <label htmlFor="InputEmail">Email Address</label>
+                            <input onChange={this.update('email')}
+                                type="email"
+                                className="form-control w-50 mx-auto"
+                                id="InputEmail"
+                                value={email}
+                                aria-describedby="emailHelp"/>
+                            <small id="emailHelp" className="form-text text-muted">You will have to verify your email</small>
+                        </div>
 
-                    <div className="form-group">
-                        <label htmlFor="InputKeyWord">Keyword Input</label>
-                        <input onChange={this.update('wordInput')}
-                            type="text"
-                            className="form-control"
-                            maxLength='20'
-                            title="single word"
-                            value={wordInput}
-                            id="InputKeyWord" />
-                        <br/>
-                        <button onClick={this.addWord} className="btn btn-secondary btn-block">Add Keyword</button>
+                        <div className="form-group">
+                            <label htmlFor="InputKeyWord">Keyword Input</label>
+                            <input onChange={this.update('wordInput')}
+                                type="text"
+                                className="form-control w-50 mx-auto"
+                                maxLength='20'
+                                title="single word"
+                                value={wordInput}
+                                id="InputKeyWord" />
+                            <br/>
+                            <button onClick={this.addWord} className="btn btn-secondary btn-block w-50 mx-auto">Add Keyword</button>
+                            <small id="emailHelp" className="form-text text-muted">
+                                {wordInputErr}
+                            </small>
+
+                        </div>
+
+                        { keywords }
+
+                        {submitButton}
                         <small id="emailHelp" className="form-text text-muted">
-                            {wordInputErr}
+                            {wordsErr}
+                            {submitErr}
                         </small>
-
-                    </div>
-
-                    { keywords }
-
-                    {submitButton}
-                    <small id="emailHelp" className="form-text text-muted">
-                        {wordsErr}
-                        {submitErr}
-                    </small>
-                </form>
+                    </form>
+                    <br/>
+                    <br/>
+                </div>
             </div>
         );
     }

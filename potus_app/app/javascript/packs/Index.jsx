@@ -6,6 +6,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import App from "../components/App";
 import './../../assets/stylesheets/my_styles.css'
 
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   render(
     <App />,
