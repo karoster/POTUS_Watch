@@ -5,6 +5,8 @@ import HeaderNav from "../components/Header"
 import Confirmation from "../components/Confirmation"
 import Footer from "../components/Footer"
 import Unsubscribe from "../components/Unsubscribe";
+import About from "../components/About"
+import RecentTweet from "../components/RecentTweet"
 
 
 
@@ -31,6 +33,7 @@ export default (
 
         <Route path="/about" render={ props => 
           <div>
+            <About/>
           </div>
         }/>
 

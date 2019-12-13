@@ -46,7 +46,8 @@ while(true)
         uri_obj = newest_tweet.url
         tweet = { tweet:
                     { twitter_handle: 'watch_potus',
-                      body: newest_tweet.text },
+                      body: newest_tweet.text,
+                      tweet_id: newest_tweet_id },
                   auth_token: my_api_auth,
                   id: newest_tweet_id }
 

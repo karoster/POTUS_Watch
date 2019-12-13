@@ -29,6 +29,14 @@ class Api::V1::TweetsController < ApplicationController
 
   end
 
+
+  def show
+    #latest = Tweet.last
+    # tweet_embed = twitter_client.oembed(latest_tweet[:tweet_id])
+    # render json: {tweet_html: tweet_embed.html}
+
+  end
+
   private
 
   def get_alerts
@@ -43,7 +51,7 @@ class Api::V1::TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:twitter_handle, :body)
+    params.require(:tweet).permit(:twitter_handle, :body, :tweet_id)
   end
 
 end
