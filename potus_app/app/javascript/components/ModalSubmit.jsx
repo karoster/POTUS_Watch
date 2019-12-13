@@ -27,9 +27,7 @@ class ModalSubmit extends React.Component{
         } else {
             //should add a button to resend confirmation email...?
             modalBody = <div className="modal-body">
-                Please click the link sent in the confirmation email sent to {response.email} 
-                 to finish setting up your alert! 
-                 
+                Please click the link in the confirmation email sent to {response.email} to finish setting up your alerts! 
             </div>
         }
 

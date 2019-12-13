@@ -154,16 +154,16 @@ class UnverifiedForm extends React.Component{
                 <div className="section text-center">
                     <h1>Sign Up</h1>
                     <h4>You Can Monitor 5 Keywords</h4>
-                    {modalSubmit ? <ModalSubmit removeModal={this.removeModal} response={response} /> : ""}
+                    {modalSubmit ? <ModalSubmit removeModal={ this.removeModal } response={response} /> : ""}
 
-                    <form className="my-form" onSubmit={this.submitForm}>
+                    <form className="my-form" onSubmit={ this.submitForm }>
                         <div className="form-group">
                             <label htmlFor="InputEmail">Email Address</label>
-                            <input onChange={this.update('email')}
+                            <input onChange={ this.update('email') }
                                 type="email"
                                 className="form-control w-50 mx-auto"
                                 id="InputEmail"
-                                value={email}
+                                value={ email }
                                 aria-describedby="emailHelp"/>
                             <small id="emailHelp" className="form-text text-muted">You will have to verify your email</small>
                         </div>
@@ -175,22 +175,22 @@ class UnverifiedForm extends React.Component{
                                 className="form-control w-50 mx-auto"
                                 maxLength='20'
                                 title="single word"
-                                value={wordInput}
+                                value={ wordInput }
                                 id="InputKeyWord" />
                             <br/>
-                            <button onClick={this.addWord} className="btn btn-secondary btn-block w-50 mx-auto">Add Keyword</button>
+                            <button onClick={ this.addWord } className="btn btn-secondary btn-block w-50 mx-auto">Add Keyword</button>
                             <small id="emailHelp" className="form-text text-muted">
-                                {wordInputErr}
+                                { wordInputErr }
                             </small>
 
                         </div>
 
                         { keywords }
 
-                        {submitButton}
+                        { submitButton }
                         <small id="emailHelp" className="form-text text-muted">
-                            {wordsErr}
-                            {submitErr}
+                            { wordsErr }
+                            { submitErr }
                         </small>
                     </form>
                     <br/>

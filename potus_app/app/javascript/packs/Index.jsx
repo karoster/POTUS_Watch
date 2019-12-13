@@ -9,10 +9,6 @@ import './../../assets/stylesheets/my_styles.css'
 
 
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   render(
     <App />,
