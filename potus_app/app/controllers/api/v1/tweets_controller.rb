@@ -30,10 +30,9 @@ class Api::V1::TweetsController < ApplicationController
   end
 
 
-  def show
-    #latest = Tweet.last
-    # tweet_embed = twitter_client.oembed(latest_tweet[:tweet_id])
-    # render json: {tweet_html: tweet_embed.html}
+  def index
+    latest = Tweet.last
+    render json: {tweet_id: latest.tweet_id}
 
   end
 

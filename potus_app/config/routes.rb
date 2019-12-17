@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :tweets, only: [:create]
+      resources :tweets, only: [:create, :index]
       resources :unverified_alerts, only: [:create]
       resources :verified_alerts, only: [:show, :destroy]
     end

@@ -150,7 +150,7 @@ class UnverifiedForm extends React.Component{
 
 
         return (
-            <div className="container ">
+            <div className="container">
                 <div className="section text-center">
                     <h1>Sign Up</h1>
                     <h4>You Can Monitor 5 Keywords</h4>

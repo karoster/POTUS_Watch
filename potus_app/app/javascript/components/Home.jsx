@@ -1,5 +1,7 @@
 import React from "react";
 import UnverifiedForm from "./UnverifiedForm"
+import RecentTweet from "../components/RecentTweet"
+
 import { Link } from "react-router-dom";
 
 export default () => (
@@ -15,6 +17,8 @@ export default () => (
         </p>
       </div>
     </section>
+    <RecentTweet/>
+
     <UnverifiedForm/>
   </div>
 );

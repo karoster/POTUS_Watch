@@ -6,13 +6,15 @@ import Confirmation from "../components/Confirmation"
 import Footer from "../components/Footer"
 import Unsubscribe from "../components/Unsubscribe";
 import About from "../components/About"
-import RecentTweet from "../components/RecentTweet"
+
 
 
 
 export default (
   <Router>
     <div>
+    <script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
       <HeaderNav/>
       <Switch>
 
@@ -27,6 +29,8 @@ export default (
           <div>
             <Unsubscribe {...props} />
             <Home/>
+
+
           </div>
         }/>
 
