@@ -1,14 +1,15 @@
 import React from "react";
 import UnverifiedForm from "./UnverifiedForm"
-import RecentTweet from "../components/RecentTweet"
+import RecentTweets from "../components/RecentTweets"
 
-import { Link } from "react-router-dom";
+
 
 export default () => (
   <div>
     <section className="jumbotron jumbotron-fluid text-center">
       <div className="container py-5">
         <h1 className="display-4">Alerts to the President's latest tweets</h1>
+        <RecentTweets/>
         <p className="lead text-muted">
           Use this web-app to get alert emails when the
           president's tweet contains your designated keywords--
@@ -17,8 +18,8 @@ export default () => (
         </p>
       </div>
     </section>
-    <RecentTweet/>
-
+    <br/>
+    <br/>
     <UnverifiedForm/>
   </div>
 );

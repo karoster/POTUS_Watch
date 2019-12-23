@@ -11,6 +11,10 @@ class Footer extends React.Component{
 
         return(
             <footer className="footer">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <div className="container">
                     <div className="section text-center">
                         <span className="text-muted">Footer stuff here...</span>

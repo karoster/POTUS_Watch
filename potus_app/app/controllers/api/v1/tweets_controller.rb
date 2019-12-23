@@ -31,8 +31,10 @@ class Api::V1::TweetsController < ApplicationController
 
 
   def index
-    latest = Tweet.last
-    render json: {tweet_id: latest.tweet_id}
+    latest = Tweet.last(3)
+    render json: {tweet_id1: latest[0].tweet_id,
+      tweet_id2: latest[1].tweet_id,
+      tweet_id3: latest[2].tweet_id}
 
   end
 

@@ -23,5 +23,24 @@
     margin: auto;
 }
 
+a.carousel-control-next{
+    background-image: linear-gradient(to right, rgba(233, 236, 239, 0.1) 0px, rgba(211, 211, 211, 0.8) 100%);
+   }
+a.carousel-control-prev{
+    background-image: linear-gradient(to left, rgba(233, 236, 239, 0.1) 0px, rgba(211, 211, 211, 0.8) 100%);
+}
 
+.carousel-container{
+    padding-top: 20px;
+    background: rgba(233, 236, 239, 1);
 
+}
+
+.jumbotron{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+
+}
+.py-5{
+    padding-bottom: 0px;
+}

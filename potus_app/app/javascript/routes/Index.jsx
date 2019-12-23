@@ -10,10 +10,10 @@ import About from "../components/About"
 
 
 
+
 export default (
   <Router>
     <div>
-    <script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
 
       <HeaderNav/>
       <Switch>
