@@ -14,9 +14,6 @@ class Api::V1::VerifiedAlertsController < ApplicationController
           VerifiedAlert.where(email: email).delete_all
 
           #setting authentication token for future unsubscribe authentication (reusing verification token...)
-          p "SDKLJF:LKSJD:LFJ:LSKJDFJSLKDFS:KDJF:KLSJDFKSJ:DFKSDJF:KFJ"
-          p words
-          p "SDLKFJ:SLKJF:LKSD:JFKSD:FJKSJ:DFJSKDFJ:LKSJDFJS:LKDJF:LSKDJF:LSK"
           words.each { |word| VerifiedAlert.create( email: email, word: word, authentication_token: v_token ) }
           @unverified_alert.destroy
         end

@@ -1,7 +1,7 @@
 require 'twitter'
 require 'pqueue'
 require 'net/http'
-require 'uri'
+require 'uri'   
 require 'json'
 #give access to rails credentials...
 require_relative "#{__dir__}/../../config/application.rb"
@@ -65,3 +65,4 @@ begin
 rescue Exception
     sleep(10)
     retry
+end
