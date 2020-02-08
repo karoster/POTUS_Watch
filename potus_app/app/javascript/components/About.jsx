@@ -20,8 +20,8 @@ class About extends React.Component{
                 </section>
                 <br></br>
                 <section id="about">
-                    <div class="container">
-                        <div class="row">
+                    <div className="container">
+                        <div className="row">
                             <div className="col-lg-8 mx-auto">
                             <h2>What's the Idea, Anyways?</h2>
                             <p className="lead">
@@ -53,8 +53,8 @@ class About extends React.Component{
 
                 <br></br>
                 <section id="about2">
-                    <div class="container">
-                        <div class="row">
+                    <div className="container">
+                        <div className="row">
                             <div className="col-lg-8 mx-auto">
                             <h2>How Do I Use it?</h2>
                             <p className="lead">
@@ -68,8 +68,8 @@ class About extends React.Component{
                 </section>
                 <br/>
                 <section id="about2">
-                    <div class="container">
-                        <div class="row">
+                    <div className="container">
+                        <div className="row">
                             <div className="col-lg-8 mx-auto">
                             <h2>Can I Monitor Other People?</h2>
                             <p className="lead">
