@@ -13,7 +13,7 @@ export default () => (
         <p className="lead text-muted">
           Use this web-app to get alert emails when the
           president's tweet contains your designated keywords--
-          great as a free stock market monitoring tool
+          great as a free stock market monitoring tool.
 
         </p>
       </div>
