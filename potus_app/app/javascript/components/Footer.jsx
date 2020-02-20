@@ -17,7 +17,10 @@ class Footer extends React.Component{
                 <br/>
                 <div className="container">
                     <div className="section text-center">
-                        <span className="text-muted">Footer stuff here...</span>
+                        <span className="text-muted">POTUS-Watch</span><br/>
+                        <span className="text-muted"><a href="https://github.com/karoster/POTUS_Watch">Github Repository</a></span><br/>
+                        <span className="text-muted">Fun, but unrelated, project <a href="http://venmoviz.appspot.com">VenmoViz</a></span><br/>
+                        <span className="text-muted">Having issues? Let me know at POTUS.watch@gmail.com</span>
                     </div>
                 </div>  
             </footer>

@@ -15,8 +15,6 @@ class RecentTweets extends React.Component {
 
     }
 
-
-
     componentDidMount(){
         const url = `/api/v1/tweets`
         fetch(url, {
@@ -25,9 +23,9 @@ class RecentTweets extends React.Component {
               "Content-Type": "text/html"
             }
         })
-          .then(response => response.json())
+          .then(response => response.json())//here is error...
           .then(response => { 
-            this.setState({ loading: false,
+            this.setState({ loading: false, //here is other err...
                 tweet_id1: response.tweet_id1,
                 tweet_id2: response.tweet_id2,
                 tweet_id3: response.tweet_id3,
@@ -41,14 +39,13 @@ class RecentTweets extends React.Component {
     }
 
     render(){
-        let recentTweet1, recentTweet2, recentTweet3
-
+        let recentTweet1, recentTweet2, recentTweet3;
         const {tweet_id1, tweet_id2, tweet_id3, loading} = this.state;
-
-        if (!loading){  
+        if (!loading){
             recentTweet1 = <TwitterTweetEmbed tweetId={tweet_id1}/>
             recentTweet2 = <TwitterTweetEmbed tweetId={tweet_id2}/>
             recentTweet3 = <TwitterTweetEmbed tweetId={tweet_id3}/>
+
         } else {
             recentTweet1 = <Spinner/>
             recentTweet2 = <Spinner/>
