@@ -44,3 +44,27 @@ a.carousel-control-prev{
 .py-5{
     padding-bottom: 0px;
 }
+.logo{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    height: 64px;
+    width: 64px;
+}
+
+.logo-navbar{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    height: 39px;
+    width: 39px;
+}
+
+.custom-brand{
+    font-size: 24px;
+    padding-bottom: 0px;
+}

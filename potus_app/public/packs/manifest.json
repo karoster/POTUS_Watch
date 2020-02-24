@@ -1,6 +1,6 @@
 {
-  "Index.js": "/packs/js/Index-204076d1c96b34fb45b4.js",
-  "Index.js.map": "/packs/js/Index-204076d1c96b34fb45b4.js.map",
+  "Index.js": "/packs/js/Index-802832983b57425d8085.js",
+  "Index.js.map": "/packs/js/Index-802832983b57425d8085.js.map",
   "application.js": "/packs/js/application-0b67a3cc2fcde6055024.js",
   "application.js.map": "/packs/js/application-0b67a3cc2fcde6055024.js.map",
   "entrypoints": {
@@ -14,11 +14,13 @@
     },
     "Index": {
       "js": [
-        "/packs/js/Index-204076d1c96b34fb45b4.js"
+        "/packs/js/Index-802832983b57425d8085.js"
       ],
       "js.map": [
-        "/packs/js/Index-204076d1c96b34fb45b4.js.map"
+        "/packs/js/Index-802832983b57425d8085.js.map"
       ]
     }
-  }
+  },
+  "media/images/binoculars-dark.png": "/packs/media/images/binoculars-dark-d8960fcb.png",
+  "media/images/binoculars-light.png": "/packs/media/images/binoculars-light-e117f74b.png"
 }
