@@ -62,7 +62,7 @@ begin
             response = http.request(request)     
         end
     end
-rescue Exception
+    rescue Exception
     sleep(10)
     retry
 end
