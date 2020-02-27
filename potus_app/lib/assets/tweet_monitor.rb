@@ -44,8 +44,10 @@ begin
             
             #tweet object that will persist to database, with auth token
             uri_obj = newest_tweet.url
+
             tweet = { tweet:
                         { twitter_handle: 'watch_potus',
+                        created_at: newest_tweet.created_at.strftime("%m/%d/%Y at %I:%M%p (UTC)"),
                         body: newest_tweet.text,
                         tweet_id: newest_tweet_id },
                     auth_token: my_api_auth,
@@ -59,10 +61,13 @@ begin
 
 
             # Send the request
+            print(request)
             response = http.request(request)     
         end
     end
-    rescue Exception
-    sleep(10)
+    rescue => exception
+        print(exception.backtrace)
+        print(exception)
+        sleep(10)
     retry
 end

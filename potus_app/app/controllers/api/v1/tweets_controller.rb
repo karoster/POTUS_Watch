@@ -10,11 +10,9 @@ class Api::V1::TweetsController < ApplicationController
 
       if @tweet.save
 
-        tweet_embed = twitter_client.oembed(params[:id])
-        tweet_body = tweet_params["body"]
 
         get_alerts.each do |alert|
-          AlertMailer.send_alert(alert, tweet_body, tweet_embed).deliver
+          AlertMailer.send_alert(alert, tweet_params).deliver#, tweet_embed
         end
 
         render json: { success: "okay"}
@@ -52,7 +50,7 @@ class Api::V1::TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:twitter_handle, :body, :tweet_id)
+    params.require(:tweet).permit(:twitter_handle, :body, :tweet_id, :created_at)
   end
 
 end

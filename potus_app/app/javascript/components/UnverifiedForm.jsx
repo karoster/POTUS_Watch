@@ -92,8 +92,8 @@ class UnverifiedForm extends React.Component{
         event.preventDefault();
 
         const wordInput = this.state.wordInput;
-        //only taking the first word from the input using whitespace look-behind
-        const word =  /(?<=^[\s"']*)(\w+)/.exec(wordInput)[0];
+        //only taking the first word from the input using groups
+        const word =  /^[\s"']*(\w+)/i.exec(wordInput)[1];
 
         if (this.state.words.length >= 5) {
             this.setState( {wordInput: "", wordInputErr: "You may not monitor more than five words"} );

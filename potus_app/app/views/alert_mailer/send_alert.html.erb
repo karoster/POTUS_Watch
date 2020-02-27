@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <p>The President has tweeted:</p>
-    <%= raw(@tweet_embed.html) %>
-    <p>Which contains your alert keyword: <%= @alert_word %></p>
+<div style="font-family: arial, helvetica;">
+  <p>The President has tweeted:</p>
+  <div style="display: flex; border-radius: 6px; border:1px solid lightgray; position: static; visibility: visible; transform: rotate(0deg); max-width: 100%; width: 500px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;">
+      <div>
+          <img style="flex:left; margin:20px; height:100px; width:100px;" src="https://avatars.io/twitter/realDonaldTrump" alt="Donald Trump twitter picture">
+      </div>
 
-    <p>Click
-      <a href=<%="localhost:3000/unsubscribe/#{@alert_auth}"%>>here</a>
-      to unsubscribe from these alerts
-    </p>
+      <blockquote style="flex:right; font-weight:lighter;">
+          <p lang="en" dir="ltr" style="margin-bottom: -1px; padding-bottom: -1px;"><%=@tweet_body%></p>
+          &mdash; Donald Trump (@<%=@tweet_handle%>)
+          <a style="padding-top: 9px; margin-top: 8px; display: block;" href="https://twitter.com/watch_potus/status/1233135293252816896?ref_src=twsrc%5Etfw"><%=@tweet_date%></a>
+      </blockquote>
 
-  </body>
-</html>
+  </div>
+  <p style="">Which contains your alert keyword: <%=@alert_word%></p>
+
+  <p style="">visit
+    <a href=<%="potus-watch.us/unsubscribe/#{@alert_auth}"%>><%="potus-watch.us/unsubscribe/#{@alert_auth}"%></a>
+    to unsubscribe from these alerts
+  </p>
+</div>
